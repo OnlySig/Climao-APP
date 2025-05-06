@@ -1,14 +1,19 @@
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function Index() {
+  const { navigate } = useRouter();
   return (
     <LinearGradient colors={["#00457D", "#05051F"]} style={styles.container}>
       <Image source={require("../assets/images/LogoClima.png")} />
       <Image source={require("../assets/images/lpImage.png")} />
       <Text style={styles.title}>Boas-vindas!</Text>
-      <TouchableOpacity style={styles.btnJoin}>
+      <TouchableOpacity
+        style={styles.btnJoin}
+        onPress={() => navigate("/(searchCities)/cities")}
+      >
         <Text style={styles.txtJoin}>Entrar</Text>
         <Ionicons name="arrow-forward" size={20} color={"#01080E"} />
       </TouchableOpacity>
